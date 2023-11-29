@@ -19,10 +19,10 @@ const Navbar = () => {
 
       <nav>
         <div className="md:hidden" onClick={toggleMenu}>
-          <button className="flex flex-col space-y-2" onClick={toggleMenu}>
+          <button className="flex flex-col space-y-2 mb-4" onClick={toggleMenu}>
             <div
               className={`h-1 w-6 bg-black transform transition duration-500 ease-in-out ${
-                isOpen ? "rotate-45 translate-y-3 translate-x-8" : ""
+                isOpen ? "rotate-45 translate-y-3 translate-x-16" : ""
               }`}
             ></div>
             <div
@@ -32,7 +32,7 @@ const Navbar = () => {
             ></div>
             <div
               className={`h-1 w-6 bg-black transform transition duration-500 ease-in-out ${
-                isOpen ? "-rotate-45 -translate-y-3 translate-x-8" : ""
+                isOpen ? "-rotate-45 -translate-y-3 translate-x-16" : ""
               }`}
             ></div>
           </button>
@@ -42,40 +42,40 @@ const Navbar = () => {
             <div className="flex">
               <Link
                 to="/home"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
               >
                 Home
               </Link>
               <Link
                 to="/profile"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
               >
                 Profile
               </Link>
               <button
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
                 onClick={logout}
               >
                 Log Out
               </button>
             </div>
           ) : (
-            <div className="flex">
+            <div className={`md:flex ${isOpen ? "block" : "hidden"}`}>
               <Link
                 to="/home"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
               >
                 Home
               </Link>
               <Link
                 to="/login"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
               >
                 Log In
               </Link>
               <Link
                 to="/signup"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold text-black hover:text-white"
               >
                 Sign Up
               </Link>
