@@ -36,7 +36,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="w-screen">
+      <div className="w-screen mt-2">
         <MovieList />
       </div>
     </div>
