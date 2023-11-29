@@ -108,9 +108,7 @@ const Profile = () => {
             </div>
           ))
         ) : (
-          <p className="text-xl md:text-3xl lg:text-5xl py-4">
-            No movies added to your list yet.
-          </p>
+          <p className="py-4">No movies added yet.</p>
         )}
       </div>
     </div>
