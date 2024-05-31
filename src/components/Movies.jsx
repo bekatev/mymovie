@@ -75,7 +75,7 @@ const MovieList = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <form className="py-4 mt-4 w-full max-w-lg">
+        <form className="py-4 mt-4 w-full max-w-lg md:px-0 px-4">
           <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:txt">
             Search
           </label>
