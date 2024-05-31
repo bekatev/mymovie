@@ -6,6 +6,7 @@ import { auth } from "../../firebase";
 const Login = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
@@ -20,6 +21,7 @@ const Login = () => {
       navigate("/authDetails");
     } catch (error) {
       console.error("Login Error:", error);
+      setErrorMessage("User does not exist or incorrect password.");
     }
   };
 
@@ -29,6 +31,10 @@ const Login = () => {
         <h1 className="text-xl md:text-3xl lg:text-5xl pb-4 mt-16 text-white">
           Login
         </h1>
+
+        {errorMessage && (
+          <div className="text-red-500 mb-4 text-center">{errorMessage}</div>
+        )}
 
         <div className="flex justify-center mb-6 w-full">
           <div className="relative">
