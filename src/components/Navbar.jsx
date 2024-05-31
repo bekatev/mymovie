@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="bg-primary flex justify-between items-center p-4 w-screen">
       <Link to="/home">
-        <img src={Logo} className="w-12" alt="Logo" />
+        <img src={Logo} className="w-20" alt="Logo" />
       </Link>
 
       <nav>
@@ -46,18 +46,18 @@ const Navbar = () => {
             <div className="flex flex-col md:flex-row">
               <Link
                 to="/home"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
               >
                 Home
               </Link>
               <Link
                 to="/profile"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
               >
                 Profile
               </Link>
               <button
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
                 onClick={logout}
               >
                 Log Out
@@ -67,19 +67,19 @@ const Navbar = () => {
             <div className="flex flex-col md:flex-row">
               <Link
                 to="/home"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
               >
                 Home
               </Link>
               <Link
                 to="/login"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
               >
                 Log In
               </Link>
               <Link
                 to="/signup"
-                className="block px-4 py-2 text-sm font-bold text-black"
+                className="block px-4 py-2 text-sm font-bold txt"
               >
                 Sign Up
               </Link>

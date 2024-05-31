@@ -101,7 +101,7 @@ const Profile = () => {
               </button>
               <button
                 onClick={() => deleteMovie(movie.id)}
-                className="mt-2 rounded-xl bg-red-500 p-2 text-white hover:bg-red-700"
+                className="mt-2 rounded-xl bg-red-500 p-2 txt hover:bg-red-700"
               >
                 Remove Movie
               </button>

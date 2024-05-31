@@ -26,11 +26,11 @@ const RegistrationForm = () => {
   if (isRegistered) {
     return (
       <div className="w-screen">
-        <h1 className="text-xl md:text-3xl lg:text-5xl text-center py-8 text-white">
+        <h1 className="text-xl md:text-3xl lg:text-5xl text-center py-8 txt">
           Your account has been successfully created!
         </h1>
         <button className="rounded-xl bg-primary p-4">
-          <Link to="/home" className="block px-4 py-2 text-sm text-white">
+          <Link to="/home" className="block px-4 py-2 text-sm txt">
             Search movies
           </Link>
         </button>
@@ -40,7 +40,7 @@ const RegistrationForm = () => {
   return (
     <div className="w-screen">
       <form onSubmit={handleRegistration} className="pt-16">
-        <h1 className="text-xl md:text-3xl lg:text-5xl pb-4 text-white">
+        <h1 className="text-xl md:text-3xl lg:text-5xl pb-4 txt">
           Register New Account
         </h1>
         <div className="flex justify-center mb-6 w-full">

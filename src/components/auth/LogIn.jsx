@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div className="w-screen">
       <form onSubmit={handleLogin}>
-        <h1 className="text-xl md:text-3xl lg:text-5xl pb-4 mt-16 text-white">
+        <h1 className="text-xl md:text-3xl lg:text-5xl pb-4 mt-16 txt">
           Login
         </h1>
 

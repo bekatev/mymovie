@@ -10,9 +10,10 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#f3d503",
+          DEFAULT: "#A9B7F5",
         },
-        buttonHover: "#f7e24f",
+        buttonHover: "#8492cf",
+        txt: "#26293F",
       },
     },
   },
