@@ -100,9 +100,12 @@ const MovieList = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for movies"
               className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
+              inputMode="search"
+              style={{ fontSize: "16px" }} // Set font size to 16px to prevent zoom
               required
             />
             <button
+              type="button"
               onClick={handleSearch}
               className="text-white absolute end-2.5 bottom-2.5 bg-primary hover:bg-buttonHover font-medium rounded-lg text-sm px-4 py-2"
             >
@@ -131,8 +134,11 @@ const MovieList = () => {
               <p className="text-sm text-gray-600 text-center">{movie.Year}</p>
             </div>
             <button
-              onClick={() => addMovieToUserList(movie)}
-              className="rounded-b-xl bg-primary p-2 hover:bg-buttonHover"
+              onClick={(e) => {
+                e.preventDefault();
+                addMovieToUserList(movie);
+              }}
+              className="rounded-b-xl bg-primary p-2 hover:bg-buttonHover w-full"
             >
               Add to My List
             </button>
@@ -143,7 +149,7 @@ const MovieList = () => {
       {hasMore && movies.length > 0 && (
         <button
           onClick={handleLoadMore}
-          className="bg-primary mt-20 mb-12 px-4 py-2 rounded-xl mx-auto"
+          className="bg-primary mt-20 mb-12 px-4 py-2 rounded-xl mx-auto block"
         >
           Load More
         </button>
