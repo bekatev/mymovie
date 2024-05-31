@@ -4,14 +4,11 @@ import { useUser } from "../components/auth/UserContext";
 import { db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 
-const types = ["movie", "series", "episode"];
-
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
@@ -32,17 +29,15 @@ const MovieList = () => {
     }
   };
 
-  const fetchMovies = async (query, type, page = 1) => {
+  const fetchMovies = async (query, page = 1) => {
     setIsLoading(true);
     setError(null);
     try {
-      let url = `https://www.omdbapi.com/?apikey=aa773180&s=${encodeURIComponent(
-        query
-      )}&page=${page}`;
-      if (type) {
-        url += `&type=${encodeURIComponent(type)}`;
-      }
-      const response = await fetch(url);
+      const response = await fetch(
+        `https://www.omdbapi.com/?apikey=aa773180&s=${encodeURIComponent(
+          query
+        )}&page=${page}`
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -50,8 +45,8 @@ const MovieList = () => {
       if (data.Response === "False") {
         throw new Error(data.Error);
       }
-      setMovies(data.Search || []);
-      setHasMore(data.Search?.length > 0);
+      setMovies((prevMovies) => [...prevMovies, ...data.Search]);
+      setHasMore(data.Search.length > 0);
     } catch (error) {
       setError(error.message);
     }
@@ -61,14 +56,12 @@ const MovieList = () => {
   const handleSearch = () => {
     setMovies([]);
     setCurrentPage(1);
-    const query = searchQuery.trim() !== "" ? searchQuery : "";
-    fetchMovies(query, type, 1);
+    fetchMovies(searchQuery, 1);
   };
-
   const handleLoadMore = () => {
     const nextPage = currentPage + 1;
     setCurrentPage(nextPage);
-    fetchMovies(searchQuery, type, nextPage);
+    fetchMovies(searchQuery, nextPage);
   };
 
   if (isLoading) {
@@ -82,11 +75,11 @@ const MovieList = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <form className="py-4 mt-4 w-full max-w-lg md:flex gap-4 block md:px-0 px-6">
+        <form className="py-4 mt-4 w-full max-w-lg">
           <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:txt">
             Search
           </label>
-          <div className="relative my-2">
+          <div className="relative">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <svg
                 className="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -109,29 +102,12 @@ const MovieList = () => {
               className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
               inputMode="search"
               style={{ fontSize: "16px" }}
+              required
             />
-          </div>
-          <div className="relative my-2">
-            <select
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              className="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 outline-none"
-            >
-              <option value="" className="text-sm text-gray-900">
-                Select Type
-              </option>
-              {types.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="relative mb-2 mt-3">
             <button
               type="button"
               onClick={handleSearch}
-              className="txt bg-primary hover:bg-buttonHover font-medium rounded-lg text-sm px-4 py-3"
+              className="txt absolute end-2.5 bottom-2.5 bg-primary hover:bg-buttonHover font-medium rounded-lg text-sm px-4 py-2"
             >
               Search
             </button>
