@@ -32,7 +32,7 @@ const Home = () => {
           </div>
         </Carousel>
         <div className="carousel-text text-xl md:text-5xl lg:text-7xl">
-          Find your Movies
+          Find your Movies!
         </div>
       </div>
 
