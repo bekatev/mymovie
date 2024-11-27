@@ -12,12 +12,12 @@ import { UserProvider } from "./components/auth/UserContext";
 function App() {
   return (
     <UserProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/mymovie">
+        {" "}
         <div>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/profile" element={<Profile />} />
