@@ -8,16 +8,18 @@ import MovieDetails from "./components/MovieDetails";
 import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./components/auth/UserContext";
+import { Navigate } from "react-router-dom"; // Import Navigate for redirects
 
 function App() {
   return (
     <UserProvider>
       <BrowserRouter basename="/mymovie">
-        {" "}
         <div>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            {/* Redirect root (/) to /home */}
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/profile" element={<Profile />} />
