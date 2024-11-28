@@ -9,20 +9,6 @@ body {
   text-align: center;
 }
 
-.carousel-container {
-  position: relative;
-  width: 100%;
-}
-
-.carousel-item {
-  position: relative;
-}
-
-.carousel-image {
-  width: 100%;
-  display: block;
-}
-
 .overlay {
   position: absolute;
   top: 0;
@@ -30,21 +16,6 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.carousel-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-size: 24px;
-  text-align: center;
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .logo {

@@ -8,7 +8,7 @@ import MovieDetails from "./components/MovieDetails";
 import Profile from "./components/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./components/auth/UserContext";
-import { Navigate } from "react-router-dom"; // Import Navigate for redirects
+import { Navigate } from "react-router-dom";
 
 function App() {
   return (

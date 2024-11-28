@@ -1,27 +1,18 @@
+import { useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useState, useEffect } from "react";
 import { auth } from "../../firebase";
 import { useUser } from "./UserContext";
 
 const AuthDetails = () => {
-  const [user, createUser] = useState(null);
-  const { setUser } = useUser();
+  const { user, setUser } = useUser(); // Access user and setUser from context
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser || null);
+      setUser(currentUser || null); // Sync with Firebase Auth
     });
 
-    return unsubscribe;
+    return unsubscribe; // Clean up the listener on component unmount
   }, [setUser]);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      createUser(currentUser || null);
-    });
-
-    return unsubscribe;
-  }, []);
 
   const handleSignOut = async () => {
     try {
